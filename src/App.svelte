@@ -3,7 +3,7 @@
   let mockImage;
 </script>
 
-<main>
+<main class="page">
   <ChristmasCanvas {mockImage} />
   <img
     alt="hidden"
@@ -16,5 +16,11 @@
 <style>
   .hidden-image {
     display: none;
+  }
+
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>
