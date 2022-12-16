@@ -1,0 +1,1 @@
+Christmas pixel tree decoration activity created for the last programming club meeting of the year, in December 2022.
