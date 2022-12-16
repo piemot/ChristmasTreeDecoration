@@ -8,3 +8,5 @@ Christmas pixel tree decoration activity created for the last programming club m
 4. Inside the website session, run `npm run build && npm run preview` to start the website.
 5. Set up nginx so that the socket server website serves port 7000 and the website serves port 8000.
 6. If changed, update the socket url in /components/ChristmasCanvas.svelte.
+
+![image](https://user-images.githubusercontent.com/68029599/208048333-3cec1eca-7d6b-4233-a47a-0c90f4aa2304.png)
