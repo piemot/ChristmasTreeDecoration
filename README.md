@@ -11,4 +11,4 @@ Christmas pixel tree decoration activity created for the last programming club m
 
 
 ![image](https://user-images.githubusercontent.com/68029599/208048490-2ba0caee-59a8-4af5-9664-9371dcb936c8.png)
-*December 2022*
+<p style="text-align: center;">December 2022</p>
