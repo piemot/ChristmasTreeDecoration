@@ -4,7 +4,7 @@ Christmas pixel tree decoration activity created for the last programming club m
 ## Running the website:
 1. Clone the repository, and run npm install.
 2. Set up two tmux sessions, one for the server and one for the website.
-3. Inside the server session, run `node server.js` to start the socket server.
+3. Inside the server session, go to `cd backend` run `node server.js` to start the socket server.
 4. Inside the website session, run `npm run build && npm run preview` to start the website.
 5. Set up nginx so that the socket server website serves port 7000 and the website serves port 8000.
 6. If changed, update the socket url in /components/ChristmasCanvas.svelte.
