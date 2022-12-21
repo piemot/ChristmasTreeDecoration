@@ -23,7 +23,7 @@
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     socket.on("currentgrid", (data) => {
-      console.log(data);
+      // console.log(data);
       const ctx = canvas.getContext("2d");
       ctx.drawImage(mockImage, 0, 40, canvasx, canvasy);
       for (const loc in data) {

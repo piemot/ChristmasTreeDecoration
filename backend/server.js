@@ -31,9 +31,7 @@ function socket({ io }) {
 
   io.on("connection", (socket) => {
     console.log(`A user has connected: ${socket.id}`);
-
     socket.emit("currentgrid", pixels);
-
     socket.on("pixelsend", (data) => {
       // console.log("pixelsend", data);
       const { x, y, color } = data;
