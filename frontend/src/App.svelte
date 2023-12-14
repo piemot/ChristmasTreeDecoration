@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ChristmasCanvas from "../components/ChristmasCanvas.svelte";
+  import ChristmasCanvas from "./components/ChristmasCanvas.svelte";
   let mockImage;
 </script>
 
