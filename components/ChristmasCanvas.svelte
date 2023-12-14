@@ -9,9 +9,10 @@
   export let mockImage;
   const [canvasx, canvasy] = [960, 960];
   let canvas;
-  const socket = Socket("https://christmassocket.flatypus.me");
-
+  // const socket = Socket("https://christmassocket.flatypus.me");
+  const socket  = Socket("http://localhost:7000")
   const drawPixel = (x: number, y: number, color: string) => {
+
     const ctx = canvas.getContext("2d");
     ctx.fillStyle = color;
     ctx.fillRect(10 * x, 10 * y, 10, 10);
@@ -31,6 +32,10 @@
         drawPixel(x, y, data[loc]);
       }
     });
+    socket.on("pixelupdate", (data) => {
+      const { x, y, color } = data;
+      drawPixel(x, y, color);
+    }); 
   });
 
   $: {
