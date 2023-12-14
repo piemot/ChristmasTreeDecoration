@@ -1,18 +1,18 @@
 <script lang="ts">
-  //   import { useEffect, useMemo, useRef, useState } from "react";
-  //   import ColorPicker from "./colorpicker/ColorPicker";
-  import Socket from "socket.io-client";
   import { onMount } from "svelte";
   import ColorPicker from "svelte-awesome-color-picker";
+  import Socket from "socket.io-client";
 
   let hex = "#ff0000";
   export let mockImage;
   const [canvasx, canvasy] = [960, 960];
   let canvas;
-  const socket = Socket("https://christmassocket.flatypus.me");
-  // const socket  = Socket("http://localhost:7000")
-  const drawPixel = (x: number, y: number, color: string) => {
 
+  type Pixel = {id: string, x: number, y: number, color: string}
+  
+  const socket = Socket((import.meta as any).env.VITE_BACKEND_URL);
+
+  const drawPixel = (x: number, y: number, color: string) => {
     const ctx = canvas.getContext("2d");
     ctx.fillStyle = color;
     ctx.fillRect(10 * x, 10 * y, 10, 10);
@@ -23,14 +23,13 @@
     canvas.height = canvasy;
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    socket.on("currentgrid", (data) => {
-      // console.log(data);
+    socket.on("currentgrid", (data: Pixel[]) => {
       const ctx = canvas.getContext("2d");
       ctx.drawImage(mockImage, 0, 40, canvasx, canvasy);
-      for (const loc in data) {
-        const { x, y } = JSON.parse(loc);
-        drawPixel(x, y, data[loc]);
-      }
+      data.forEach((pixel) => {
+        const { x, y, color } = pixel;
+        drawPixel(x, y, color);
+      });
     });
     socket.on("pixelupdate", (data) => {
       const { x, y, color } = data;
