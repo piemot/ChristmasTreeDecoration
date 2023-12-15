@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const DATABASE_NAME = process.env.DATABASE_NAME || "pixel2022";
-const SQL_PATH = process.env.SQL_PATH || "temp";
+const SQL_PATH = process.env.SQL_PATH || "/temp";
 
 console.log(DATABASE_NAME, SQL_PATH);
 

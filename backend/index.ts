@@ -2,6 +2,7 @@ import { createServer } from "http";
 import { DatabaseQueries } from "./lib/database";
 import { Server } from "socket.io";
 import express from "express";
+import fs from "fs";
 
 const port = 6969;
 const host = "0.0.0.0";
@@ -16,6 +17,12 @@ const io = new Server(http, {
     credentials: true,
   },
 });
+
+// saved maps get loaded in
+const sqlitePath = "/temp/sqlite.db";
+if (!fs.existsSync(sqlitePath)) {
+  fs.copyFileSync("./temp/sqlite.db", sqlitePath);
+}
 
 function socket({ io }: { io: Server }) {
   console.log("Socket.io connected, recieving pixels");
