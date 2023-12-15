@@ -1,11 +1,15 @@
 import { createServer } from "http";
 import { DatabaseQueries } from "./lib/database";
 import { Server } from "socket.io";
+import dotenv from "dotenv";
 import express from "express";
 import fs from "fs";
 
+dotenv.config();
+
 const port = 6969;
 const host = "0.0.0.0";
+const SQL_PATH = process.env.SQL_PATH || "/temp";
 
 const corsOrigin = "*";
 
@@ -19,7 +23,7 @@ const io = new Server(http, {
 });
 
 // saved maps get loaded in
-const sqlitePath = "/temp/sqlite.db";
+const sqlitePath = `${SQL_PATH}/sqlite.db`;
 if (!fs.existsSync(sqlitePath)) {
   fs.copyFileSync("./temp/sqlite.db", sqlitePath);
 }
