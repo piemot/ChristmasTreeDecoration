@@ -54,3 +54,8 @@ http.listen(port, host, () => {
   console.log(`Server v2 listening on http://${host}:${port}/`);
   socket({ io });
 });
+
+setTimeout(() => {
+  console.log("Exiting");
+  process.exit(0);
+}, 1000 * 60 * 60 * 24);
