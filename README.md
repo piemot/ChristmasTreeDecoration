@@ -2,7 +2,7 @@
 
 Christmas pixel tree decoration activity created for the last programming club meeting of the year, in December 2022.
 
-*Updated in December 2023 for real-time editing, SQLite + Drizzle ORM, and Railway deploy!
+✨ Updated in December 2023 for real-time editing, SQLite + Drizzle ORM, and Railway deploy!
 
 ## Running the website:
 
@@ -11,11 +11,11 @@ Christmas pixel tree decoration activity created for the last programming club m
 3. Install the dependencies in root, `/backend`, and `/frontend` with `bun i`.
 4. Setup a `.env` file in root; put in:
 
-    ```env
-    DATABASE_NAME=pixel2023 # or whatever year; this affects the table name
-    VITE_BACKEND_URL=http://localhost:6969 # backend runs on port 6969 by default
-    SQL_PATH=./temp # this is where the SQLite3 database will be stored relative to /backend; on Railway, this is /temp because that's where the volume is mounted
-    ```
+   ```env
+   DATABASE_NAME=pixel2023 # or whatever year; this affects the table name
+   VITE_BACKEND_URL=http://localhost:6969 # backend runs on port 6969 by default
+   SQL_PATH=./temp # this is where the SQLite3 database will be stored relative to /backend; on Railway, this is /temp because that's where the volume is mounted
+   ```
 
 5. Run `bun dev` in root to start the backend and frontend servers!
 
