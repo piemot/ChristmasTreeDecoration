@@ -1,11 +1,16 @@
 <script lang="ts">
-  import ChristmasCanvas from "./components/ChristmasCanvas.svelte";
+  import ChristmasCanvas from "$lib/components/ChristmasCanvas.svelte";
   let mockImage;
 </script>
 
 <main class="page">
   <ChristmasCanvas {mockImage} />
-  <img alt="hidden" src="tree.png" on:load={(e) => (mockImage = e.target)} class="hidden-image" />
+  <img
+    alt="hidden"
+    src="tree.png"
+    on:load={(e) => (mockImage = e.target)}
+    class="hidden-image"
+  />
 </main>
 
 <style>
