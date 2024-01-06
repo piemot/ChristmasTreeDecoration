@@ -12,7 +12,7 @@ Christmas pixel tree decoration activity created for the last programming club m
 4. Setup a `.env` file in root; put in:
 
    ```env
-   DATABASE_NAME=pixel2023 # or whatever year; this affects the table name
+   INITIAL_CANVAS=pixel2023 # or whatever year; this affects the first-loaded canvas
    VITE_BACKEND_URL=http://localhost:6969 # backend runs on port 6969 by default
    SQL_PATH=./temp # this is where the SQLite3 database will be stored relative to /backend; on Railway, this is /temp because that's where the volume is mounted
    ```
