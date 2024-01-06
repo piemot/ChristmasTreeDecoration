@@ -8,8 +8,8 @@
   const [canvasx, canvasy] = [960, 960];
   let canvas;
 
-  type Pixel = {id: string, x: number, y: number, color: string}
-  
+  type Pixel = { id: string; x: number; y: number; color: string };
+
   const socket = Socket((import.meta as any).env.VITE_BACKEND_URL);
 
   const drawPixel = (x: number, y: number, color: string) => {
@@ -34,7 +34,7 @@
     socket.on("pixelupdate", (data) => {
       const { x, y, color } = data;
       drawPixel(x, y, color);
-    }); 
+    });
   });
 
   $: {
