@@ -14,7 +14,7 @@
 
   const drawPixel = (x: number, y: number, color: number) => {
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = `#${color}`;
+    ctx.fillStyle = `#${color.toString(16).padStart(6, '0')}`;
     ctx.fillRect(10 * x, 10 * y, 10, 10);
   };
   onMount(() => {
