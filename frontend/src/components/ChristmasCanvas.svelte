@@ -8,13 +8,13 @@
   const [canvasx, canvasy] = [960, 960];
   let canvas;
 
-  type Pixel = {id: string, x: number, y: number, color: string}
-  
+  type Pixel = { canvas: number; x: number; y: number; color: number };
+
   const socket = Socket((import.meta as any).env.VITE_BACKEND_URL);
 
-  const drawPixel = (x: number, y: number, color: string) => {
+  const drawPixel = (x: number, y: number, color: number) => {
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = color;
+    ctx.fillStyle = `#${color}`;
     ctx.fillRect(10 * x, 10 * y, 10, 10);
   };
   onMount(() => {
@@ -31,19 +31,21 @@
         drawPixel(x, y, color);
       });
     });
-    socket.on("pixelupdate", (data) => {
+    socket.on("pixelupdate", (data: Pixel) => {
       const { x, y, color } = data;
       drawPixel(x, y, color);
-    }); 
+    });
   });
 
   $: {
     if (canvas) {
-      canvas.addEventListener("click", (e) => {
+      canvas.addEventListener("click", (e: PointerEvent) => {
         const x = Math.floor(e.offsetX / 10);
         const y = Math.floor(e.offsetY / 10);
-        drawPixel(x, y, hex);
-        socket.emit("pixelsend", { x, y, color: hex });
+        const color = parseInt(hex.slice(1), 16);
+
+        drawPixel(x, y, color);
+        socket.emit("pixelsend", { x, y, color });
       });
     }
   }
