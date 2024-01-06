@@ -2,7 +2,7 @@
 
 Christmas pixel tree decoration activity created for the last programming club meeting of the year, in December 2022.
 
-\*Updated in December 2023 for real-time editing, SQLite + Drizzle ORM, and Railway deploy!
+✨ Updated in December 2023 for real-time editing, SQLite + Drizzle ORM, and Railway deploy!
 
 ## Running the website:
 
