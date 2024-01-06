@@ -1,23 +1,25 @@
 <script lang="ts">
   import ChristmasCanvas from "$lib/components/ChristmasCanvas.svelte";
-  let mockImage;
+  import tree from '$lib/assets/tree.png?url';
+
+  async function loadMockImage() {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload = function() {
+        resolve(img);
+      };
+      img.src = tree;
+    })
+  }
 </script>
 
 <main class="page">
-  <ChristmasCanvas {mockImage} />
-  <img
-    alt="hidden"
-    src="tree.png"
-    on:load={(e) => (mockImage = e.target)}
-    class="hidden-image"
-  />
+  {#await loadMockImage() then mockImage}
+    <ChristmasCanvas {mockImage} />
+  {/await}
 </main>
 
 <style>
-  .hidden-image {
-    display: none;
-  }
-
   .page {
     display: flex;
     flex-direction: column;

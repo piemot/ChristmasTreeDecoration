@@ -23,8 +23,8 @@
     canvas.height = canvasy;
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    socket.on("currentgrid", (data: Pixel[]) => {
-      const ctx = canvas.getContext("2d");
+    socket.on("currentgrid",  (data: Pixel[]) => {
+      const ctx = canvas.getContext("2d")
       ctx.drawImage(mockImage, 0, 40, canvasx, canvasy);
       data.forEach((pixel) => {
         const { x, y, color } = pixel;
