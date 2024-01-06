@@ -84,7 +84,7 @@ export class DatabaseQueries {
       if (canvas.length < 1) {
         throw new Error("No canvas corresponds to INITIAL_CANVAS.");
       } else {
-        DatabaseQueries.activeCanvas = canvas[0]!.id;
+        DatabaseQueries.activeCanvas = canvas[0].id;
       }
     }
     console.debug("Launching backend db with canvas ", INITIAL_CANVAS);
